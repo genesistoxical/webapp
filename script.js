@@ -13,26 +13,21 @@ imageInput.addEventListener('change', function () {
 
   reader.onload = function (e) {
     img.onload = function () {
-      const canvasSize = 1024;
+      const canvasSize = 256;
       canvas.width = canvasSize;
       canvas.height = canvasSize;
 
-      // Clear canvas and fill with transparent background
       ctx.clearRect(0, 0, canvasSize, canvasSize);
 
-      // Calculate aspect ratio
+      // Maintain aspect ratio
       const imgRatio = img.width / img.height;
-      const canvasRatio = canvasSize / canvasSize;
-
       let drawWidth = canvasSize;
       let drawHeight = canvasSize;
 
       if (imgRatio > 1) {
-        // Image is wider
         drawWidth = canvasSize;
         drawHeight = canvasSize / imgRatio;
       } else {
-        // Image is taller
         drawHeight = canvasSize;
         drawWidth = canvasSize * imgRatio;
       }
@@ -51,8 +46,17 @@ imageInput.addEventListener('change', function () {
 });
 
 downloadBtn.addEventListener('click', function () {
-  const link = document.createElement('a');
-  link.download = 'icon.png';
-  link.href = canvas.toDataURL('image/png');
-  link.click();
+  canvas.toBlob(function (blob) {
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      const arrayBuffer = reader.result;
+      const byteArray = new Uint8Array(arrayBuffer);
+      const icoBlob = new Blob([byteArray], { type: 'image/vnd.microsoft.icon' });
+      const link = document.createElement('a');
+      link.download = 'icon.ico';
+      link.href = URL.createObjectURL(icoBlob);
+      link.click();
+    };
+    reader.readAsArrayBuffer(blob);
+  }, 'image/png');
 });
