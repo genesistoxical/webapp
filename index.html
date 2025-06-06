@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
@@ -39,8 +39,8 @@
         <p id="loading" class="loading-2">✧</p>
         <p class="wait-txt">Waiting for download...</p>
       </div>
-      <form id="form" caction="/" method="post" enctype="multipart/form-data">
-	    <input type="file" id="imageInput" accept="image/*" name="icon"/>
+	  <canvas id="canvas" width="1024" height="1024"></canvas>
+	  <input type="file" id="imageInput" accept="image/*" name="icon"/>
 		<button id="downloadBtn" disabled>Convert</button>
       </form>
       <p class="details" id="details-main">
@@ -89,7 +89,7 @@
         <li></li>
       </ul>
     </div>
-    <script type="text/javascript" src="client.js"></script>
+      <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   </body>
 </html>
