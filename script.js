@@ -16,6 +16,7 @@ imageInput.addEventListener('change', function () {
       canvas.width = canvasSize;
       canvas.height = canvasSize;
 
+<<<<<<< Updated upstream
       // Fill with transparent (or white if needed: ctx.fillStyle = "#fff")
       ctx.clearRect(0, 0, canvasSize, canvasSize);
 
@@ -28,6 +29,32 @@ imageInput.addEventListener('change', function () {
       const offsetY = (canvasSize - newHeight) / 2;
 
       ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+=======
+      // Clear canvas and fill with transparent background
+      ctx.clearRect(0, 0, canvasSize, canvasSize);
+
+      // Calculate aspect ratio
+      const imgRatio = img.width / img.height;
+      const canvasRatio = canvasSize / canvasSize;
+
+      let drawWidth = canvasSize;
+      let drawHeight = canvasSize;
+
+      if (imgRatio > 1) {
+        // Image is wider
+        drawWidth = canvasSize;
+        drawHeight = canvasSize / imgRatio;
+      } else {
+        // Image is taller
+        drawHeight = canvasSize;
+        drawWidth = canvasSize * imgRatio;
+      }
+
+      const offsetX = (canvasSize - drawWidth) / 2;
+      const offsetY = (canvasSize - drawHeight) / 2;
+
+      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+>>>>>>> Stashed changes
 
       downloadBtn.disabled = false;
     };
