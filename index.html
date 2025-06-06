@@ -1,103 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title> Online Image Editor </title>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark bg-success mb-5">
-        <div class="container">
-            <a href="#" class="navbar-brand">Online Image Editor</a>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 m-auto">
-                <div class="custom-file mb-3">
-                    <input type="file" class="custom-file-input" id="upload-file">
-                    <label for="upload-file" class="custom-file-label">Choose Image</label>
-                </div>
-                <canvas id="canvas"></canvas>
-                <h4 class="text-center my-3">Filters</h4>
-                <div class="row text-center my-4">
-                    <div class="col-md-3">
-                        <div class="btn-group btn-group-sm">
-                            <button class="filter-btn brightness-remove btn btn-success">-</button>
-                            <button class="btn-primary btn-disabled" disabled>Brightness</button>
-                            <button class="filter-btn brightness-add btn btn-success">+</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="btn-group btn-group-sm">
-                            <button class="filter-btn contrast-remove btn btn-success">-</button>
-                            <button class="btn-primary btn-disabled" disabled>Contrast</button>
-                            <button class="filter-btn contrast-add btn btn-success">+</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="btn-group btn-group-sm">
-                            <button class="filter-btn saturation-remove btn btn-success">-</button>
-                            <button class="btn-primary btn-disabled" disabled>Saturation</button>
-                            <button class="filter-btn saturation-add btn btn-success">+</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="btn-group btn-group-sm">
-                            <button class="filter-btn vibrance-remove btn btn-success">-</button>
-                            <button class="btn-primary btn-disabled" disabled>Vibrance</button>
-                            <button class="filter-btn vibrance-add btn btn-success">+</button>
-                        </div>
-                    </div>
-                </div>
-                <h4 class="text-center my-3">Filters</h4>
-                <div class="row text-center my-4">
-                    <div class="col-md-3">
-                        <button class="filter-btn vintage-add btn btn-dark btn-block">Vintage</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn lomo-add btn btn-dark btn-block">Lomo</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn clarity-add btn btn-dark btn-block">Clarity</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn sincity-add btn btn-dark btn-block">Sin City</button>
-                    </div>
-                </div>
-                <div class="row text-center my-4">
-                    <div class="col-md-3">
-                        <button class="filter-btn crossprocess-add btn btn-dark btn-block">Cross Process</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn Pinhole-add btn btn-dark btn-block">Pinhole</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn nostalgia-add btn btn-dark btn-block">Nostalgia</button>
-                    </div>
-                    <div class="col-md-3">
-                        <button class="filter-btn hermajesty-add btn btn-dark btn-block">Her Majesty</button>
-                    </div>
-                </div>
-                <div class="row text-center my-5">
-                    <div class="col-md-6">
-                        <button id="download-btn" class="btn btn-success btn-block">Download Image</button>
-                    </div>
-                    <div class="col-md-6">
-                        <button id="revert-btn" class="btn btn-warning btn-block">Remove Filters</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+<html>
+  <head>
+    <title>Convert Image to Icon</title>
+    <meta name="description" content="Convert Image to Icon Online" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://cdn.glitch.global/a10162e3-ee44-4c5c-b75e-a0b0a2a2da7b/file-orientation.png?v=1679876138415"
+      type="image/png"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
+    />
+  </head>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <body style="font-family: Inter">
+    <a
+      class="github-fork-ribbon"
+      href="https://github.com/genesistoxical/imagetoicon"
+      data-ribbon="View on GitHub"
+      title="View on GitHub"
+      >Fork me on GitHub</a
+    >
+    <main>
+      <header style="font-family: Staatliches">
+        <h1>Convert Image to Icon</h1>
+      </header>
+      <div class="cargando" style="display: none">
+        <p id="loading" class="loading-2">✧</p>
+        <p class="wait-txt">Waiting for download...</p>
+      </div>
+      <form id="form" caction="/" method="post" enctype="multipart/form-data">
+        <input onchange="activatebtn()" id="input" type="file" name="icon" />
+        <button disabled="true" onclick="wait();" id="convert" type="submit">
+          Convert
+        </button>
+      </form>
+      <p class="details" id="details-main">
+        Upload your image and click Convert. Supported formats are .png .jpg
+        .jpeg .jfif .gif or .bmp<br />
+        Please note that if the image is too large, it will take longer to
+        convert.
+      </p>
+      <p class="details" style="display: none" id="details-wait">
+        Please wait until the download starts and don't refresh this tab... your
+        icon is almost ready.<br />
+        Once you've downloaded the icon, you can convert more by clicking below.
+      </p>
+      <p class="link">
+        <a id="link-main" href="/MIT.html" rel="modal:open"
+          >Made with ♡ under MIT LICENSE</a
+        >
+        <a style="display: none" id="link-wait" onclick="restart()" href=""
+          >Click to convert another one ↻</a
+        >
+      </p>
+    </main>
+    <footer>
+      <a href="https://glitch.com/~imagetoicon" target="_blank" rel="nofollow"
+        >View on Glitch</a
+      >
+      <a href="/about.html" rel="nofollow">About</a>
+      <a
+        href="https://github.com/genesistoxical/imagetoicon"
+        target="_blank"
+        rel="nofollow"
+        >View on Github</a
+      >
+    </footer>
+    <div class="bottom-div">
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
-    <script src="main.js"></script>
-</body>
-
+    <script type="text/javascript" src="client.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  </body>
 </html>
