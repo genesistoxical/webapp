@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Convert PNG to ICO",
   "main": "server.js",
+  "homepage": "https://genesistoxical.github.io/webapp",
   "scripts": {
     "start": "node server.js",
     "preinstall": "npx npm-force-resolutions"
