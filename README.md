@@ -1,2 +1,0 @@
-# OnlineImageEditor
-WORK IN PROGRESS!!!
