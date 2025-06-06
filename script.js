@@ -1,4 +1,3 @@
-
 const imageInput = document.getElementById('imageInput');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -13,13 +12,23 @@ imageInput.addEventListener('change', function () {
 
   reader.onload = function (e) {
     img.onload = function () {
-      // Clear canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const canvasSize = 1024;
+      canvas.width = canvasSize;
+      canvas.height = canvasSize;
 
-      // Resize and draw image
-      ctx.drawImage(img, 0, 0, 1024, 1024);
+      // Fill with transparent (or white if needed: ctx.fillStyle = "#fff")
+      ctx.clearRect(0, 0, canvasSize, canvasSize);
 
-      // Enable download button
+      // Compute aspect ratio fit
+      const ratio = Math.min(canvasSize / img.width, canvasSize / img.height);
+      const newWidth = img.width * ratio;
+      const newHeight = img.height * ratio;
+
+      const offsetX = (canvasSize - newWidth) / 2;
+      const offsetY = (canvasSize - newHeight) / 2;
+
+      ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
       downloadBtn.disabled = false;
     };
     img.src = e.target.result;
