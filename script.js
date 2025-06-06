@@ -1,3 +1,4 @@
+
 const imageInput = document.getElementById('imageInput');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -16,20 +17,6 @@ imageInput.addEventListener('change', function () {
       canvas.width = canvasSize;
       canvas.height = canvasSize;
 
-<<<<<<< Updated upstream
-      // Fill with transparent (or white if needed: ctx.fillStyle = "#fff")
-      ctx.clearRect(0, 0, canvasSize, canvasSize);
-
-      // Compute aspect ratio fit
-      const ratio = Math.min(canvasSize / img.width, canvasSize / img.height);
-      const newWidth = img.width * ratio;
-      const newHeight = img.height * ratio;
-
-      const offsetX = (canvasSize - newWidth) / 2;
-      const offsetY = (canvasSize - newHeight) / 2;
-
-      ctx.drawImage(img, offsetX, offsetY, newWidth, newHeight);
-=======
       // Clear canvas and fill with transparent background
       ctx.clearRect(0, 0, canvasSize, canvasSize);
 
@@ -54,7 +41,6 @@ imageInput.addEventListener('change', function () {
       const offsetY = (canvasSize - drawHeight) / 2;
 
       ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
->>>>>>> Stashed changes
 
       downloadBtn.disabled = false;
     };
