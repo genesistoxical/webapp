@@ -116,6 +116,6 @@ async function createICO(img) {
   downloadBtn.textContent = 'Downloading...';
   $("#link-wait").show();
   $("#link-main").hide();
-  $('#imageInput, #downloadBtn')[0].disabled = true;
+  $('#imageInput, #downloadBtn').disabled = true;
   $('#imageInput, #downloadBtn').style.cursor = 'pointer';
 }
