@@ -3,7 +3,21 @@ const downloadBtn = document.getElementById('downloadBtn');
 
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
+  const fileName = imageInput.value;
+  const name = fileName.substring(0, fileName.indexOf("."));
+  const ext = fileName.substring(fileName.indexOf(".") + 1);
+  
   if (!file) return;
+  
+  var supported =
+    ext.includes("png") ||
+    ext.includes("jpg") ||
+    ext.includes("jpeg") ||
+    ext.includes("jfif") ||
+    ext.includes("gif") ||
+    ext.includes("bmp");
+
+  if (supported === false) return;
   
   const img = new Image();
   const reader = new FileReader();
@@ -49,10 +63,6 @@ function resizeToCanvas(img, size) {
 async function createICO(img) {
   downloadBtn.textContent = '• • •';
   
-  var file = file.originalname;
-  var name = file.substring(0, file.indexOf("."));
-  var ext = file.substring(file.indexOf(".") + 1);}
-  
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
     const canvas = resizeToCanvas(img, size);
@@ -93,12 +103,12 @@ async function createICO(img) {
     ico.set(part, offset);
     offset += part.length;
   });
-
+  
   const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
-  downloadBtn.textContent = 'Convert';
-  imageInput.value = ''; // or fileInput.value = null;
   link.download = name + '.ico';
   link.href = URL.createObjectURL(blob);
   link.click();
+  imageInput.value = ''; // or fileInput.value = null;
+  downloadBtn.textContent = 'Convert';
 }
