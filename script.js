@@ -58,8 +58,10 @@ function wait() {
 }
 
 async function createICO(img) {
-  $(".form, #details-main, #link-main").hide();
-  $("#details-wait, #link-wait, .cargando").show();
+  const button = document.getElementById('downloadBtn'); // Replace 'myButton' with your actual button ID
+  button.textContent = 'Waiting for download...';
+  $("#details-main, #link-main").hide();
+  $("#details-wait, #link-wait").show();
   $(".link").css("margin-top", 51);
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
