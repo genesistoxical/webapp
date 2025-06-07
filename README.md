@@ -9,6 +9,10 @@ Convert image to icon online.
 - Supports **.png .jpg .jpeg .jfif .gif** or **.bmp**
 - High resolution icon.
 
+## Preview:
+
+<a href="#"><img src="assets/Image-to-Icon.png"/></a>
+
 ## Info:
 
 Credits can be found on the [about](https://genesistoxical.github.io/webapp/about.html) page.
