@@ -13,7 +13,6 @@ imageInput.addEventListener('change', function () {
     img.onload = function () {
       downloadBtn.disabled = false;  
       downloadBtn.onclick = () => createICO(img);
-	  wait();	
     };
     img.src = e.target.result;
   };
@@ -59,6 +58,9 @@ function wait() {
 }
 
 async function createICO(img) {
+  $("#details-main, #link-main").hide();
+  $("#details-wait, #link-wait, .cargando").show();
+  $(".link").css("margin-top", 51);
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
     const canvas = resizeToCanvas(img, size);
