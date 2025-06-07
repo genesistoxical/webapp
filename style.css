@@ -179,7 +179,7 @@ footer {
   padding: 64px 9px 63px 9px;
   border-radius: 3px;
   width: 450px;
-  background-image: url(/assets/photo-plus.svg);
+  background-image: url(/webapp/assets/photo-plus.svg);
   background-size: auto 80px;
   background-repeat: no-repeat;
   background-position: center;

@@ -67,7 +67,7 @@ function resizeToCanvas(img, size)
 
 async function createICO(img)
 {
-  imageInput.style.backgroundImage = "url(/assets/photo-plus-spark.svg)";
+  imageInput.style.backgroundImage = "url(/webapp/assets/photo-plus-spark.svg)";
   imageInput.style.backgroundPositionY = "42px";
   imageInput.style.color = "Transparent";
   
