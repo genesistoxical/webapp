@@ -94,7 +94,7 @@ async function createICO(img) {
 
   const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
-  button.textContent = 'Convert';
+  // button.textContent = 'Convert';
   fileInput.value = ''; // or fileInput.value = null;
   link.download = 'icon.ico';
   link.href = URL.createObjectURL(blob);
