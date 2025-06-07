@@ -13,22 +13,13 @@ imageInput.addEventListener('change', function () {
     img.onload = function () {
       downloadBtn.disabled = false;
       downloadBtn.onclick = () => createICO(img);
+	  wait();
     };
     img.src = e.target.result;
   };
 
   reader.readAsDataURL(file);
 });
-
-function restart() {
-  location.reload();
-}
-
-function wait() {
-  $(".form, #details-main, #link-main").hide();
-  $("#details-wait, #link-wait, .cargando").show();
-  $(".link").css("margin-top", 51);
-};
 
 function resizeToCanvas(img, size) {
   const canvas = document.createElement('canvas');
@@ -55,6 +46,16 @@ function resizeToCanvas(img, size) {
 
   ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   return canvas;
+}
+
+function restart() {
+  location.reload();
+}
+
+function wait() {
+  $(".form, #details-main, #link-main").hide();
+  $("#details-wait, #link-wait, .cargando").show();
+  $(".link").css("margin-top", 51);
 }
 
 async function createICO(img) {
