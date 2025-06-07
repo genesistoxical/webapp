@@ -4,10 +4,6 @@ const downloadBtn = document.getElementById('downloadBtn');
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
   if (!file) return;
-
-  var file = file.originalname;
-  var name = file.substring(0, file.indexOf("."));
-  var ext = file.substring(file.indexOf(".") + 1);
   
   const img = new Image();
   const reader = new FileReader();
