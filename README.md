@@ -1,6 +1,6 @@
 # Image to Icon 🫧
 
-Convert image to icon online. Running on glitch at [`imagetoicon.glitch.me`](https://imagetoicon.glitch.me)
+Convert image to icon online.
 
 ## Features:
 
@@ -11,10 +11,6 @@ Convert image to icon online. Running on glitch at [`imagetoicon.glitch.me`](htt
 
 ## Info:
 
-Credits can be found on the [about](https://imagetoicon.glitch.me/about.html) page.
+Credits can be found on the [about](https://genesistoxical.github.io/webapp/about.html) page.
 
 **MIT LICENSE** - Copyright (c) 2023 - 2025 Génesis Toxical
-
-<br/>
-
-><sup>There are currently no plans to update **Jimp**, as code changes will be required, but contributions are appreciated.</sup>
