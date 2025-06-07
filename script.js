@@ -112,7 +112,8 @@ async function createICO(img) {
   link.href = URL.createObjectURL(blob);
   link.click();
   
-  imageInput.value = ''; // or fileInput.value = null;
+  imageInput.value = null;
+  imageInput.disabled = true;
   downloadBtn.textContent = 'Downloading...';
   downloadBtn.disabled = true;
   $("#link-wait").show();
