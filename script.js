@@ -49,7 +49,7 @@ function resizeToCanvas(img, size) {
 async function createICO(img) {
   downloadBtn.textContent = '• • •';
   
-  var file = req.file.originalname;
+  var file = file.originalname;
   var name = file.substring(0, file.indexOf("."));
   var ext = file.substring(file.indexOf(".") + 1);}
   
