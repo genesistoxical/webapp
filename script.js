@@ -7,6 +7,9 @@ imageInput.addEventListener('change', function () {
   
   const img = new Image();
   const reader = new FileReader();
+  var file = file.originalname;
+  var name = file.substring(0, file.indexOf("."));
+  var ext = file.substring(file.indexOf(".") + 1);
 
   reader.onload = function (e) {
     img.onload = function () {
