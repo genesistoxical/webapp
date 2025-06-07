@@ -106,6 +106,8 @@ async function createICO(img) {
 
   const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
+  $("#details-main, #link-main").show();
+  $("#details-wait, #link-wait").hide();
   link.download = 'icon.ico';
   link.href = URL.createObjectURL(blob);
   link.click();
