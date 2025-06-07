@@ -11,9 +11,9 @@ imageInput.addEventListener('change', function () {
 
   reader.onload = function (e) {
     img.onload = function () {
-      downloadBtn.disabled = false;
-      wait();	  
+      downloadBtn.disabled = false;  
       downloadBtn.onclick = () => createICO(img);
+	  wait();	
     };
     img.src = e.target.result;
   };
