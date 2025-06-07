@@ -4,7 +4,6 @@ const downloadBtn = document.getElementById('downloadBtn');
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
   const fileName = imageInput.value;
-  const name = fileName.substring(0, fileName.indexOf("."));
   const ext = fileName.substring(fileName.indexOf(".") + 1);
   
   if (!file) return;
@@ -106,6 +105,7 @@ async function createICO(img) {
   
   const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
+  const name = imageInput.value.substring(0, imageInput.value.indexOf("."));
   link.download = name + '.ico';
   link.href = URL.createObjectURL(blob);
   link.click();
