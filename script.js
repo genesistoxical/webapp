@@ -1,12 +1,14 @@
 const imageInput = document.getElementById('imageInput');
 const downloadBtn = document.getElementById('downloadBtn');
 
-imageInput.addEventListener('change', function () {
+imageInput.addEventListener('change', function ()
+{
   const file = this.files[0];
   const ext = imageInput.value.substring(imageInput.value.indexOf(".") + 1);
   
   if (!file) return;
   
+  // Supported extensions
   var supported =
     ext.includes("png") ||
     ext.includes("jpg") ||
@@ -20,8 +22,10 @@ imageInput.addEventListener('change', function () {
   const img = new Image();
   const reader = new FileReader();
 
-  reader.onload = function (e) {
-    img.onload = function () {
+  reader.onload = function (e)
+  {
+    img.onload = function ()
+	{
       downloadBtn.disabled = false;  
       downloadBtn.onclick = () => createICO(img);
     };
@@ -31,7 +35,8 @@ imageInput.addEventListener('change', function () {
   reader.readAsDataURL(file);
 });
 
-function resizeToCanvas(img, size) {
+function resizeToCanvas(img, size)
+{
   const canvas = document.createElement('canvas');
   canvas.width = size;
   canvas.height = size;
@@ -43,10 +48,12 @@ function resizeToCanvas(img, size) {
   let drawWidth = size;
   let drawHeight = size;
 
-  if (imgRatio > 1) {
+  if (imgRatio > 1)
+  {
     drawWidth = size;
     drawHeight = size / imgRatio;
-  } else {
+  } else
+  {
     drawHeight = size;
     drawWidth = size * imgRatio;
   }
@@ -58,14 +65,15 @@ function resizeToCanvas(img, size) {
   return canvas;
 }
 
-async function createICO(img) {
-  downloadBtn.textContent = '• • •';
+async function createICO(img)
+{
   imageInput.style.backgroundImage = "url(https://cdn.glitch.global/a10162e3-ee44-4c5c-b75e-a0b0a2a2da7b/photo-plus-spark.svg?v=1689992698745)";
   imageInput.style.backgroundPositionY = "42px";
   imageInput.style.color = "Transparent";
   
   const sizes = [16, 32, 48, 64, 128, 256];
-  const iconParts = await Promise.all(sizes.map(async size => {
+  const iconParts = await Promise.all(sizes.map(async size =>
+  {
     const canvas = resizeToCanvas(img, size);
     const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
     const arrayBuffer = await blob.arrayBuffer();
@@ -80,7 +88,8 @@ async function createICO(img) {
   ico.set([0, 0, 1, 0, iconParts.length, 0], 0);
 
   let offset = headerSize;
-  iconParts.forEach((part, i) => {
+  iconParts.forEach((part, i) =>
+  {
     const size = sizes[i];
     const width = size === 256 ? 0 : size;
     const height = size === 256 ? 0 : size;
