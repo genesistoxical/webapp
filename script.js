@@ -47,23 +47,10 @@ function resizeToCanvas(img, size) {
   return canvas;
 }
 
-function restart() {
-  location.reload();
-}
-
-function wait() {
-  $("#details-main, #link-main").hide();
-  $("#details-wait, #link-wait, .cargando").show();
-  $(".link").css("margin-top", 51);
-}
-
 async function createICO(img) {
   const button = document.getElementById('downloadBtn'); // Replace 'myButton' with your actual button ID
   const fileInput = document.getElementById('imageInput');
-  button.textContent = 'Waiting for download...';
-  $("#details-main, #link-main").hide();
-  $("#details-wait, #link-wait").show();
-  $(".link").css("margin-top", 51);
+  button.textContent = '• • •';
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
     const canvas = resizeToCanvas(img, size);
@@ -109,8 +96,6 @@ async function createICO(img) {
   const link = document.createElement('a');
   button.textContent = 'Convert';
   fileInput.value = ''; // or fileInput.value = null;
-  $("#details-main, #link-main").show();
-  $("#details-wait, #link-wait").hide();
   link.download = 'icon.ico';
   link.href = URL.createObjectURL(blob);
   link.click();
