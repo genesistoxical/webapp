@@ -1,3 +1,4 @@
+
 const imageInput = document.getElementById('imageInput');
 const downloadBtn = document.getElementById('downloadBtn');
 
@@ -6,8 +7,9 @@ function restart() {
 }
 
 function wait() {
-  $("#link-main").hide();
-  $("#link-wait").show();
+  $("#form, #details-main, #link-main").hide();
+  $("#details-wait, #link-wait, .cargando").show();
+  $(".link").css("margin-top", 51);
 }
 
 imageInput.addEventListener('change', function () {
