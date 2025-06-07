@@ -67,7 +67,7 @@ function resizeToCanvas(img, size)
 
 async function createICO(img)
 {
-  imageInput.style.backgroundImage = "url(https://cdn.glitch.global/a10162e3-ee44-4c5c-b75e-a0b0a2a2da7b/photo-plus-spark.svg?v=1689992698745)";
+  imageInput.style.backgroundImage = "url(/assets/photo-plus-spark.svg)";
   imageInput.style.backgroundPositionY = "42px";
   imageInput.style.color = "Transparent";
   
