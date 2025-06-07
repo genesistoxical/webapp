@@ -59,6 +59,7 @@ function wait() {
 
 async function createICO(img) {
   const button = document.getElementById('downloadBtn'); // Replace 'myButton' with your actual button ID
+  const fileInput = document.getElementById('imageInput');
   button.textContent = 'Waiting for download...';
   $("#details-main, #link-main").hide();
   $("#details-wait, #link-wait").show();
@@ -106,6 +107,8 @@ async function createICO(img) {
 
   const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
+  button.textContent = 'Convert';
+  fileInput.value = ''; // or fileInput.value = null;
   $("#details-main, #link-main").show();
   $("#details-wait, #link-wait").hide();
   link.download = 'icon.ico';
