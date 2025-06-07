@@ -12,8 +12,8 @@ imageInput.addEventListener('change', function () {
   reader.onload = function (e) {
     img.onload = function () {
       downloadBtn.disabled = false;
+      wait();	  
       downloadBtn.onclick = () => createICO(img);
-	  wait();
     };
     img.src = e.target.result;
   };
@@ -53,7 +53,7 @@ function restart() {
 }
 
 function wait() {
-  $(".form, #details-main, #link-main").hide();
+  $("#details-main, #link-main").hide();
   $("#details-wait, #link-wait, .cargando").show();
   $(".link").css("margin-top", 51);
 }
