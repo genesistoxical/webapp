@@ -2,16 +2,6 @@
 const imageInput = document.getElementById('imageInput');
 const downloadBtn = document.getElementById('downloadBtn');
 
-function restart() {
-  location.reload();
-}
-
-function wait() {
-  $("#form, #details-main, #link-main").hide();
-  $("#details-wait, #link-wait, .cargando").show();
-  $(".link").css("margin-top", 51);
-}
-
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
   if (!file) return;
@@ -29,6 +19,16 @@ imageInput.addEventListener('change', function () {
 
   reader.readAsDataURL(file);
 });
+
+function restart() {
+  location.reload();
+}
+
+function wait() {
+  $(".form, #details-main, #link-main").hide();
+  $("#details-wait, #link-wait, .cargando").show();
+  $(".link").css("margin-top", 51);
+};
 
 function resizeToCanvas(img, size) {
   const canvas = document.createElement('canvas');
