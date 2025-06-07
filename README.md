@@ -6,8 +6,10 @@
 </p>
 
 ## Features
-Does not cut or stretch the image. Simple interface, just a few clicks to convert. High resolution icon.
-Supports **.png .jpg .jpeg .jfif .gif** or **.bmp**
+- Does not cut or stretch the image.
+- Simple interface, just a few clicks to convert.
+- Supports **.png .jpg .jpeg .jfif .gif** or **.bmp**
+- High resolution icon.
 
 <br/>
 
