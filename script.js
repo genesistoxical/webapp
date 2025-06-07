@@ -3,8 +3,7 @@ const downloadBtn = document.getElementById('downloadBtn');
 
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
-  const fileName = imageInput.value;
-  const ext = fileName.substring(fileName.indexOf(".") + 1);
+  const ext = imageInput.value.substring(imageInput.value.indexOf(".") + 1);
   
   if (!file) return;
   
@@ -61,6 +60,9 @@ function resizeToCanvas(img, size) {
 
 async function createICO(img) {
   downloadBtn.textContent = '• • •';
+  imageInput.style.backgroundImage = "url(https://cdn.glitch.global/a10162e3-ee44-4c5c-b75e-a0b0a2a2da7b/photo-plus-spark.svg?v=1689992698745)";
+  imageInput.style.backgroundPositionY = "42px";
+  imageInput.style.color = "Transparent";
   
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
@@ -110,5 +112,7 @@ async function createICO(img) {
   link.href = URL.createObjectURL(blob);
   link.click();
   imageInput.value = ''; // or fileInput.value = null;
-  // downloadBtn.textContent = 'Convert';
+  downloadBtn.textContent = 'Downloading...';
+  downloadBtn.disabled = true;
+  $("#link-wait").show();
 }
