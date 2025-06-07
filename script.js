@@ -1,6 +1,14 @@
-
 const imageInput = document.getElementById('imageInput');
 const downloadBtn = document.getElementById('downloadBtn');
+
+function restart() {
+  location.reload();
+}
+
+function wait() {
+  $("#link-main").hide();
+  $("#link-wait").show();
+}
 
 imageInput.addEventListener('change', function () {
   const file = this.files[0];
@@ -89,7 +97,7 @@ async function createICO(img) {
     offset += part.length;
   });
 
-  const blob = new Blob([ico], { type: 'image/vnd.microsoft.icon' });
+  const blob = new Blob([ico], { type: 'image/icon' });
   const link = document.createElement('a');
   link.download = 'icon.ico';
   link.href = URL.createObjectURL(blob);
