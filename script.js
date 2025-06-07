@@ -110,5 +110,5 @@ async function createICO(img) {
   link.href = URL.createObjectURL(blob);
   link.click();
   imageInput.value = ''; // or fileInput.value = null;
-  downloadBtn.textContent = 'Convert';
+  // downloadBtn.textContent = 'Convert';
 }
