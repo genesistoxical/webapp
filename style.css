@@ -39,7 +39,7 @@ p {
   display: inline-block;
   width: 100%;
   max-width: 480px;
-  border-radius: 3px;
+  margin-top: -20px;
 }
 
 .parent {
