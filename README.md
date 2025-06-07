@@ -5,8 +5,8 @@
 <a href="#"><img src="assets/Image-to-Icon.png"/></a>
 </p>
 
-<h2 align="center">Features</h2>
-<p align="center">
+<h2 align="left">Features</h2>
+<p align="left">
 Does not cut or stretch the image. Simple interface, just a few clicks to convert. High resolution icon.<br/>
 Supports <b>.png .jpg .jpeg .jfif .gif</b> or <b>.bmp</b>
 </p>
