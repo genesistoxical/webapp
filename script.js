@@ -7,9 +7,6 @@ imageInput.addEventListener('change', function () {
   
   const img = new Image();
   const reader = new FileReader();
-  var file = file.originalname;
-  var name = file.substring(0, file.indexOf("."));
-  var ext = file.substring(file.indexOf(".") + 1);
 
   reader.onload = function (e) {
     img.onload = function () {
@@ -51,6 +48,11 @@ function resizeToCanvas(img, size) {
 
 async function createICO(img) {
   downloadBtn.textContent = '• • •';
+  
+  var file = req.file.originalname;
+  var name = file.substring(0, file.indexOf("."));
+  var ext = file.substring(file.indexOf(".") + 1);}
+  
   const sizes = [16, 32, 48, 64, 128, 256];
   const iconParts = await Promise.all(sizes.map(async size => {
     const canvas = resizeToCanvas(img, size);
