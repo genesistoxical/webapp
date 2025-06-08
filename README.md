@@ -15,4 +15,5 @@
 
 ## Info
 Credits can be found on the [about](https://genesistoxical.github.io/webapp/about.html) page.
+
 **MIT LICENSE** - Copyright (c) 2023 - 2025 Génesis Toxical
